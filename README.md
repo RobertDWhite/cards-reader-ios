@@ -27,9 +27,10 @@ the server needs to change.
 Requires Xcode 16+ and [XcodeGen](https://github.com/yonaskolb/XcodeGen).
 
 ```sh
+cp Config.example.xcconfig Config.xcconfig   # set server URL, team ID, bundle ID
 xcodegen generate
 open Cards.xcodeproj
 ```
 
-The server URL is hardcoded in `Cards/Sources/Model.swift` (`Server.base`). Change it,
-and `DEVELOPMENT_TEAM` / the bundle ID in `project.yml`, to point at your own archive.
+`Config.xcconfig` is gitignored. It holds the archive server URL (`CARDS_SERVER_URL`),
+which the app reads from its Info.plist at launch, plus your signing team and bundle ID.

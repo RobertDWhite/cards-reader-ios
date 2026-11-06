@@ -1,8 +1,14 @@
 import Foundation
 
-/// The archive server. Hardcoded on purpose: the app is a client for this one site.
+/// The archive server, set by CARDS_SERVER_URL in Config.xcconfig (gitignored).
 enum Server {
-    static let base = URL(string: "https://cards.pages.internal.white.fm/")!
+    static let base: URL = {
+        guard let s = Bundle.main.object(forInfoDictionaryKey: "CardsServerURL") as? String,
+              let url = URL(string: s), url.host != nil else {
+            fatalError("Set CARDS_SERVER_URL in Config.xcconfig (see Config.example.xcconfig)")
+        }
+        return url
+    }()
     static func image(_ file: String) -> URL { base.appendingPathComponent("img").appendingPathComponent(file) }
 }
 

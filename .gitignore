@@ -2,3 +2,5 @@ Cards.xcodeproj/
 build/
 DerivedData/
 xcuserdata/
+Config.xcconfig
+Cards/Info.plist

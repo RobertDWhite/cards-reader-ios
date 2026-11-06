@@ -1,0 +1,5 @@
+// Copy to Config.xcconfig (gitignored) and fill in.
+// "//" starts a comment in xcconfig, so the URL uses $() to break it up.
+CARDS_SERVER_URL = https:/$()/cards.example.com/
+DEVELOPMENT_TEAM = YOUR_TEAM_ID
+PRODUCT_BUNDLE_IDENTIFIER = com.example.cards
